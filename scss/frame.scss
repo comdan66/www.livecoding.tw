@@ -1,0 +1,100 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2016 OA Wu Design
+ */
+
+@import "_oa";
+
+// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+// [class^="icon-"], [class*=" icon-"] {
+//   font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+//   @include font-smoothing(antialiased);
+// }
+
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+html {
+  height: 100%;
+
+  body {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
+    color: rgba(50, 50, 50, 0.8);
+    background: transparent;
+
+    @include font-smoothing(antialiased);
+  }
+}
+#bar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 55px;
+  line-height: 35px;
+  @include clearfix();
+  padding: 10px;
+  background: image-url('banner.png', false, false);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    @include background-image(linear-gradient(top, rgba(0,0,0, 0) 0%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .3) 100%));
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    display: inline-block;
+    float: left;
+    z-index: 2;
+  }  
+  .avatar {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    @include border-radius(50%);
+    @include box-shadow(0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24));
+
+    img {
+      width: 100%;
+    }
+  }
+  .name {
+    width: 130px;
+    padding-left: 10px;
+    text-align: left;
+
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    @include text-shadow(0 1px 1px rgba(0,0,0,.3));
+    @include clearfix();
+
+    span {
+      display: inline;
+      font-weight: normal;
+      letter-spacing: 0;
+    }
+  }
+
+}
