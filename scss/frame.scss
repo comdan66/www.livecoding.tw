@@ -42,8 +42,8 @@ html {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 55px;
-  line-height: 35px;
+  height: 45px;
+  line-height: 25px;
   @include clearfix();
   padding: 10px;
   background: image-url('banner.png', false, false);
@@ -66,10 +66,10 @@ html {
     display: inline-block;
     float: left;
     z-index: 2;
-  }  
+  }
   .avatar {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     overflow: hidden;
     @include border-radius(50%);
     @include box-shadow(0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24));
@@ -79,7 +79,7 @@ html {
     }
   }
   .name {
-    width: 130px;
+    max-width: 130px;
     padding-left: 10px;
     text-align: left;
 
@@ -94,6 +94,23 @@ html {
       display: inline;
       font-weight: normal;
       letter-spacing: 0;
+    }
+    + * {
+      padding-left: 7px;
+      font-size: 15px;
+      color: rgba(171, 18, 18, 1.00);
+    }
+  }
+  .title {
+    padding-left: 10px;
+    &:before {
+      content: '本次標題';
+
+      font-weight: bold;
+      color: white;
+      font-size: 20px;
+      letter-spacing: 1px;
+      @include text-shadow(0 1px 1px rgba(0,0,0,.3));
     }
   }
 
