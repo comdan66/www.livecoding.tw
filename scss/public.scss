@@ -514,3 +514,7 @@ html {
     @include opacity(.55);
   } 
 }
+#like {
+  display: inline-block;
+  margin-top: 10px;
+}
