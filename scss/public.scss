@@ -51,6 +51,61 @@ html {
   width: 100%;
   background-color: white;
   @include box-shadow(0 1px 1px rgba(0,0,0,0.12));
+  // @include transition(background-color .3s);
+  @include range-width(0, 400px){
+    .container {
+      a {
+        &:not(:nth-child(1)):not(:last-child) {
+          display: none !important;
+        }
+        &:not(.fix) {
+          &:last-child {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include range-width(400px, 640px){
+    .container {
+      a {
+        &:not(:nth-child(1)):not(:nth-child(2)):not(:last-child) {
+          display: none !important;
+        }
+      }
+    }
+  }
+  &.fix {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: image-url('banner.png', false, false);
+    @include box-shadow(0 0 4px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.28));
+    
+    .container {
+      width: 100%;
+      a {
+        color: white;
+        &:first-child {
+          display: inline-block;
+          + a {
+            &:before {
+              display: inline-block !important;
+            }
+          }
+        }
+        &:after {
+          background-color: rgba(219, 240, 185, 1.00);
+        }
+      }
+    }
+    + * {
+      margin-top: 50px + 35px;
+    }
+  }
   &, .container {
     display: inline-block;
   }
@@ -69,7 +124,18 @@ html {
       line-height: 50px;
       font-weight: bold;
       cursor: pointer;
+      color: rgba(50, 50, 50, 0.8);
+      text-decoration: none;
       @include overflow-docx3();
+      &:first-child {
+        display: none;
+        font-size: 18px;
+        + a {
+          &:before {
+            display: none;
+          }
+        }
+      }
 
       &:hover, &.active {
         &:after {
@@ -103,6 +169,7 @@ html {
         @include transition(left .3s, width .3s);
       }
       + a {
+
         &:before {
           content: '';
           position: absolute;
@@ -112,7 +179,6 @@ html {
           width: 1px;
           height: calc(100% - 15px * 2);
           background-color: rgba(0,0,0,.1);
-
         }
       }
     }
@@ -147,6 +213,7 @@ html {
       width: 100%;
       margin-top: 25px;
       line-height: 21px;
+      padding: 0 10px;
       a, b {
         display: inline;
       }
@@ -193,6 +260,10 @@ html {
       width: calc(50% - 10px / 2);
       margin-top: 20px;
       @include clearfix();
+      @include range-width(0, 640px){
+        width: 100%;
+        margin-left: 0 !important;
+      }
 
       &:nth-child(2n + 1) {
         margin-left: 10px;
@@ -341,6 +412,21 @@ html {
         float: left;
         width: calc(100% / 3 - 20px / 3);
         height: 200px;
+        @include range-width(0, 450px){
+          width: 100%;
+          margin-left: 0 !important;
+          margin-top: 15px;
+        }
+        @include range-width(450px, 640px){
+          width: calc(100% / 2 - 10px / 2);
+          margin-left: 0 !important;
+          &:nth-child(n + 4) {
+            display: none;
+          }
+          &:nth-child(2n + 1) {
+            margin-left: 10px !important;
+          }
+        }
 
         + * {
           margin-left: 10px;

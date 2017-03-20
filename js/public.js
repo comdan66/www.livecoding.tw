@@ -29,5 +29,22 @@ var imgLiquid=imgLiquid||{VER:"0.9.944"};imgLiquid.bgs_Available=!1,imgLiquid.bg
 
 $(function () {
   $('.avatar, .cover').imgLiquid ();
+  var $body = $('html, body'), $menu = $('#menu'), $banner = $('#banner');
+  
+  
+  $(window).scroll (function () {
+    
+    if ($(window).scrollTop () > $banner.height ()) $menu.addClass ('fix');
+    else $menu.removeClass ('fix');
+  });
 
+  $('#about').click (function () {
+    $body.stop ().animate ({ scrollTop: $('#main').offset ().top - (50 + 35 - 1) }, 1000);
+  });
+  $('#partner').click (function () {
+    $body.stop ().animate ({ scrollTop: $('#members').offset ().top - (50) }, 1000);
+  });
+  $('#list').click (function () {
+    $body.stop ().animate ({ scrollTop: $('#videos').offset ().top - (50) }, 1000);
+  });
 });
