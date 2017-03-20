@@ -2,6 +2,7 @@
 sftp-config*
 
 cmd/.sass-cache/*
+/googlefabb4040c4c7f309.html
 
 cmd/node_modules/*
 cmd/npm-debug.log
