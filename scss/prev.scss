@@ -1,0 +1,176 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2016 OA Wu Design
+ */
+
+@import "_oa";
+
+// @include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+// [class^="icon-"], [class*=" icon-"] {
+//   font-family: 'icomoon', Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei"; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1;
+//   @include font-smoothing(antialiased);
+// }
+
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+html {
+  height: 100%;
+
+  body {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif,"微軟正黑體", "Microsoft JhengHei";
+    color: rgba(50, 50, 50, 0.8);
+    background: transparent;
+
+    @include font-smoothing(antialiased);
+  }
+}
+#bar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  line-height: 40px;
+  @include clearfix();
+  padding: 10px;
+  background: image-url('banner.png', false, false);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    @include background-image(linear-gradient(top, rgba(0,0,0, 0) 0%, rgba(0,0,0, .05) 50%, rgba(0,0,0, .2) 100%));
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    display: inline-block;
+    float: left;
+    z-index: 2;
+  }
+  .avatar {
+    position: absolute;
+    top: 7.5px;
+    left: 7.5px;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    @include border-radius(50%);
+    @include box-shadow(0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24));
+
+    img {
+      width: 100%;
+    }
+  }
+  .name {
+    padding-left: 50px;
+    text-align: left;
+
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+    letter-spacing: 1px;
+    @include text-shadow(0 1px 1px rgba(0,0,0,.3));
+    @include clearfix();
+
+    span {
+      display: inline;
+      font-weight: normal;
+      letter-spacing: 0;
+    }
+    + * {
+      padding-left: 7px;
+      font-size: 15px;
+      color: rgba(255, 255, 255, .400);
+    }
+  }
+  .title {
+    padding-left: 10px;
+    &:before {
+      content: '本次標題';
+
+      font-weight: bold;
+      color: white;
+      font-size: 26px;
+      letter-spacing: 1px;
+      @include text-shadow(0 1px 1px rgba(0,0,0,.3));
+    }
+  }
+
+}
+
+.cover {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  
+  .tip {
+    position: absolute;
+    left: 0;
+    bottom: calc(50% - 300px);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: rgba(23, 39, 30, 1.00);
+    // @include text-shadow(0 1px 1px rgba(188, 243, 221, 1.00));
+  }
+  .loading {
+    position: absolute;
+    left: 0;
+    bottom: calc(50% - 200px);
+    display: inline-block;
+    width: 100%;
+    >div {
+      display: inline-block;
+      margin: 0 auto;
+      @include clearfix();
+      
+      i {
+        float: left;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        @include border-radius(50%);
+        background-color: rgba(255, 255, 255, 0.6);
+        @include animation(l 1.4s infinite ease-in-out both);
+        margin: 5px;
+        border: 1px solid rgba(136, 206, 177, .400);
+        @for $i from 1 through 2 {
+          &:nth-child(#{$i + 1}) {
+            @include animation-delay(0.16s * $i);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include keyframes(l){
+  0%, 80%, 100% {
+    @include scale(0);
+  }
+  40% {
+    @include scale(1);
+  }
+}
