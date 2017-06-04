@@ -247,7 +247,7 @@ html {
       }
       &:first-child {
         position: absolute;
-        top: 0;
+        top: 8px;
         left: 0;
         padding-left: 80px + 16px + 8px;
         @include opacity(.95);
