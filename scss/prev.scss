@@ -200,7 +200,7 @@ html {
   background-color: rgba(0, 0, 0, .5);
   padding: 16px;
   padding-top: 0 + 80px / 2 + 8px;
-  @include border-radius(3px);
+  @include border-left-radius(5px);
 
   >*{
     float: left;
