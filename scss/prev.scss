@@ -237,7 +237,7 @@ html {
 
         width: 60px;
         text-align: right;
-        @include opacity(.85);
+        @include opacity(.9);
         font-size: 16px;
       }
       &:after {
@@ -250,7 +250,7 @@ html {
         top: 0;
         left: 0;
         padding-left: 80px + 16px + 8px;
-        @include opacity(.85);
+        @include opacity(.95);
 
         &:before {
           display: none;
