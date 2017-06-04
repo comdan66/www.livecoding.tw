@@ -198,6 +198,7 @@ html {
   @include clearfix();
   background-color: rgba(0, 0, 0, .5);
   padding: 16px;
+  padding-top: 0 + 80px / 2 + 8px;
   @include border-radius(3px);
 
   >*{
@@ -205,14 +206,17 @@ html {
     display: inline-block;
   }
   .avatar {
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    top: 0 - 80px / 2;
+    left: 16px;
+    width: 80px;
+    height: 80px;
     @include border-radius(50%);
     border: 3px solid rgba(255, 255, 255, 1);
     @include box-shadow(0 0 10px 2px rgba(0, 0, 0, .3));
   }
   .x {
-    width: calc(100% - 60px);
+    width: 100%;
     text-align: left;
     color: rgba(255, 255, 255, 1);
     span {
@@ -239,6 +243,17 @@ html {
         font-size: 17px;
         font-weight: bold;
         @include text-shadow(0 0 2px rgba(0, 0, 0, .5));
+      }
+      &:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 80px + 16px + 8px;
+        @include opacity(.75);
+
+        &:before {
+          display: none;
+        }
       }
     }
     .name {
