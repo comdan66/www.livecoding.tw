@@ -190,3 +190,77 @@ html {
     @include scale(1);
   }
 }
+
+#info {
+  position: relative;
+  display: inline-block;
+  @include clearfix();
+  background-color: rgba(0, 0, 0, .5);
+  padding: 16px;
+  @include border-radius(3px);
+
+  >*{
+    float: left;
+    display: inline-block;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    @include border-radius(50%);
+    border: 3px solid rgba(255, 255, 255, 1);
+    @include box-shadow(0 0 10px 2px rgba(0, 0, 0, .3));
+  }
+  .x {
+    width: 300px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    margin-left: 8px;
+    span {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      min-height: 30px;
+      line-height: 30px;
+      // @include overflow-docx3();
+      padding-left: 60px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: inline-block;
+
+        width: 60px;
+        text-align: right;
+        @include opacity(.75);
+      }
+    }
+    .name {
+      &:before {
+        content: '講者：';
+      }
+    }
+    .tag {
+      &:before {
+        content: '分類：';
+      }
+    }
+    .content {
+      &:before {
+        content: '主題：';
+      }
+    }
+  }
+
+}
+
+.name:after {
+  content: '吳政賢(OA Wu)';
+}
+.tag:after {
+  content: 'CSS/HTML/JavaScript';
+}
+.content:after {
+  content: '切版切版切版切版切版切版切版切版';
+}
