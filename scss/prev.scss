@@ -194,6 +194,7 @@ html {
 #info {
   position: relative;
   display: inline-block;
+  width: 400px;
   @include clearfix();
   background-color: rgba(0, 0, 0, .5);
   padding: 16px;
@@ -211,7 +212,7 @@ html {
     @include box-shadow(0 0 10px 2px rgba(0, 0, 0, .3));
   }
   .x {
-    width: 300px;
+    width: calc(100% - 60px);
     text-align: left;
     color: rgba(255, 255, 255, 1);
     span {
