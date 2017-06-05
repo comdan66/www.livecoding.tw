@@ -38,85 +38,6 @@ html {
     @include font-smoothing(antialiased);
   }
 }
-#bar {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  line-height: 40px;
-  @include clearfix();
-  padding: 10px;
-  background: image-url('banner.png', false, false);
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    @include background-image(linear-gradient(top, rgba(0,0,0, 0) 0%, rgba(0,0,0, .05) 50%, rgba(0,0,0, .2) 100%));
-    z-index: 1;
-  }
-
-  > * {
-    position: relative;
-    display: inline-block;
-    float: left;
-    z-index: 2;
-  }
-  .avatar {
-    position: absolute;
-    top: 7.5px;
-    left: 7.5px;
-    width: 45px;
-    height: 45px;
-    overflow: hidden;
-    @include border-radius(50%);
-    @include box-shadow(0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24));
-
-    img {
-      width: 100%;
-    }
-  }
-  .name {
-    padding-left: 50px;
-    text-align: left;
-
-    font-weight: bold;
-    color: white;
-    font-size: 24px;
-    letter-spacing: 1px;
-    @include text-shadow(0 1px 1px rgba(0,0,0,.3));
-    @include clearfix();
-
-    span {
-      display: inline;
-      font-weight: normal;
-      letter-spacing: 0;
-    }
-    + * {
-      padding-left: 7px;
-      font-size: 15px;
-      color: rgba(255, 255, 255, .400);
-    }
-  }
-  .title {
-    padding-left: 10px;
-    &:before {
-      content: '本次標題';
-
-      font-weight: bold;
-      color: white;
-      font-size: 26px;
-      letter-spacing: 1px;
-      @include text-shadow(0 1px 1px rgba(0,0,0,.3));
-    }
-  }
-
-}
 
 .cover {
   position: relative;
@@ -201,7 +122,9 @@ html {
   padding: 16px;
   padding-top: 0 + 80px / 2 + 8px;
   @include border-left-radius(5px);
-
+  &.swift {
+    background-color: rgba(255, 111, 0, .50);
+  }
   >*{
     float: left;
     display: inline-block;
