@@ -123,7 +123,18 @@ html {
   padding-top: 0 + 80px / 2 + 8px;
   @include border-left-radius(5px);
   &.swift {
-    background-color: rgba(255, 111, 0, .50);
+    margin-left: 0 + 35px / 2 + 4px;
+    width: 400px + 35px / 2;
+
+    .icon {
+      position: absolute;
+      top: 16px + 4px;
+      left: 0 - 35px / 2;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      @include border-radius(50%);
+    }
   }
   >*{
     float: left;
